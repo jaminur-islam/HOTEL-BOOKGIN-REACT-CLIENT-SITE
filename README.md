@@ -3,6 +3,7 @@
 This site has been created HTML, css, bootstrap, react [ visit now ](//hotel-book-bffe7.web.app/)
 
 ### You can do all that from our web site
+* Of course you have to login to our web site to do anything or you will not see anything
 * From this web site you can book hotel rooms, much easier
 * From our website you can learn about our service and also see some of our customer reviews here
 * You will be able to view our food items, see some of our hotel rooms, and take any service you wish.
