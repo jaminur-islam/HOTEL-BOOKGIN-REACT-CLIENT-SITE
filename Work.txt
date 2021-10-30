@@ -1,0 +1,28 @@
+1. book delevey / torijom [web site banat hbe]
+2. nav banner thekbe..
+3.6 ta section 
+4.main offaring [6ta][name, img , description, button(buy now)
+5.button e click korle order place korar jayzay niye zabe
+sekhane products er details soho .. tar nam thikna deyar option thakbe..
+sekhane click korle product er sathe tar email ta cole jabe .. and login kora thakle tar
+nav bar e [MyOrder] nam er ekta option thakbe zekhane gele take za za order koreche ta dekhabe 
+..login kora nah thakete login page niye jabe tar por redirect
+oikhane abar pathiye dibe..reload marle log in zare cole nah ase thik korte hbe...
+6. caile se order ke delete kore dite pare (alart dibo) [delete korar age take bole nibo apni ki sure?]
+
+// bonus
+1. navbar e manage user thakbe sekhane sob order ke dekhabe caile delete kore
+dite parbe
+2. added new service nam er ekta option thakbe zekhan theke service add kora zabe user login thakle
+[sekhane name , img , descrition 3 ta input field thakbe] click korle service add hoye jabe database e colee jabe
+3.Order korle  er sathe [status set kore dibo pending ] 
+4 manage e button thakbe click korle apprve hoye jabe
+5.My Order eo dekhabe aprove hoye gese
+4.Readme file ta change korte hbe..
+
+[must impotant resposive korte hbe]
+
+[icon img size css han tan eccha mto]
+
+
+[firebase deploy er somoy html ki change korte cao? zodi yes dei taile r route kaj korar jonno kichu korte hbe nah]
