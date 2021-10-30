@@ -59,7 +59,7 @@ const Header = () => {
                   
                   </li>
                   <li className='mt-2'>
-                  {user ? <Link to="/manage"> Manage users </Link> : ""}
+                  {user ? <Link to="/manage"> Manage order </Link> : ""}
                   </li>
                   
                  

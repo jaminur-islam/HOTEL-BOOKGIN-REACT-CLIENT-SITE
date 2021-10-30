@@ -9,7 +9,7 @@ const PrivetRouter = ({children , ...rest}) => {
   
   if(loading){
     return(
-     <div className='text-center'>
+     <div className='text-center mt-5'>
         <div className="spinner-border text-primary" role="status">
        <span className="sr-only fs-1"> </span>
       </div> 
