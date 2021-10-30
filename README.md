@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+#this is our COAST HOTELS  website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This site has been created HTML, css, bootstrap, react visit now (//hotel-book-bffe7.web.app/).
 
 ## Available Scripts
 
