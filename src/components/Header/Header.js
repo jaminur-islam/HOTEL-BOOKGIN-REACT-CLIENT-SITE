@@ -19,7 +19,7 @@ const Header = () => {
         <i className="fas fa-hotel"></i>
         <a
           className="navbar-brand fs-4 fw-bold text-uppercase text-success"
-          href="#"
+          href="/home"
         >
           Coast Hotels
         </a>
@@ -36,18 +36,43 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mx-auto navbar-container">
-            <a aria-current="page" href="#">
+            <Link aria-current="page" to="/home">
               Home
-            </a>
+            </Link>
             <HashLink to="/home#service">Services</HashLink>
 
             <a href="#">About us</a>
 
-            {user ? <Link to="/mybook">my booking </Link> : ""}
+           
 
-            {user ? <Link to="/manage"> Manage users </Link> : ""}
+              {
+                user?  <li className="nav-item dropdown ">
+                <a className="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Pages 
+                </a>
+                <ul className="dropdown-menu border-0 " aria-labelledby="navbarDropdown" style={{backgroundColor: "#57513C"}}>
+                <li  className='mt-2'>
+                  {user ? <Link to="/add">Add service </Link> : ""}
+                  </li>
+                  <li  className='mt-2'>
+                  {user ? <Link to="/mybook">My bookings </Link> : ""}
+                  
+                  </li>
+                  <li className='mt-2'>
+                  {user ? <Link to="/manage"> Manage users </Link> : ""}
+                  </li>
+                  
+                 
+                </ul>
+              </li> : ''
+              }
+            
+         
+         
 
-            {user ? (
+           
+
+        {user ? (
               <div className="d-flex align-items-center ">
                 <span className="text-white"> {user.displayName} </span>
                 <img className="user-img me-2" src={user.photoURL} alt="" />
@@ -55,7 +80,7 @@ const Header = () => {
             ) : (
               ""
             )}
-
+             
             {user ? (
               <button className="logOut-btn" onClick={logOut}>
                 Log Out
@@ -65,6 +90,9 @@ const Header = () => {
                 Log In
               </button>
             )}
+
+
+         
           </ul>
         </div>
       </div>

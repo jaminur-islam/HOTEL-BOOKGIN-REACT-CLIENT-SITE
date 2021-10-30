@@ -18,30 +18,56 @@ const Mybook = () => {
    const handlePendding = () =>{
      console.log()
    }
-   
+
+   const cancelHandle = (id) =>{
+     const process = window.confirm('Are you sure you want to cancel it?');
+     if(process){
+      axios.delete(`http://localhost:5000/order/${id}`)
+      .then(result=>{
+        if(result.data.deletedCount > 0){
+          const newOrder = myorder.filter(order => order._id !== id);
+          setMyorder(newOrder)
+          alert('Successfully Canceled')
+        }
+      })
+     }
+   }
+ let num = 1
+  console.log(myorder)
   return (
-    <div className='container'>  
-      <h1 className='text-center'> my order</h1>     
-    <div className='row'>
-      {
-       myorder?.map(order => {
+    <div className='table-responsive'> 
+    <table className="table caption-top container px-2">
+    <caption className='fs-1'>Your order list </caption>
+    <thead>
+      <tr>
+        <th scope="col">Sl</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Location</th>
+        <th scope="col"> Data </th>
+        <th scope="col"> Status </th>
+        <th scope="col"> Delete </th>
+      </tr>
+    </thead>
+     {
+       myorder?.map(order =>{
          return(
-          <div className='col-lg-6'>
-           <div className='m-3 p-4 border'>   
-            <img className='w-100' src={order.img} alt="" />
-            <h3> {order.name} </h3>
-              <h4 className='text-etalic'> <span className='text-primary'> 3 days</span> $ {order.price}</h4>
-              <h4 className='text-etalic'> <span className='text-primary'> 7 days</span> $ {order.price*2-100}</h4>
-              <h4 className='text-etalic'> <span className='text-primary'> 1 month</span> $ {order.price*3-200}</h4>
-              <p>{order.description?.slice(0.130)}</p> 
-             <button onClick={()=>handlePendding} className='btn btn-primary fs-5 px-4'> Pending </button>
-          </div>
-       </div>
+          <tbody key={order._id}>
+          <tr>
+            <th scope="row">{num++}</th>
+            <td>{order.name}</td>
+            <td>{order.email}</td>
+            <td>{order.home}</td>
+            <td>{order.date}</td>
+            <td className={order.status == 'Approve' ? 'text-success' : 'text-primary'}>{order.status}</td>
+            <td> <button onClick={()=>cancelHandle(order._id)} className='border-0 bg-danger text-white fs-6'> Cancel </button></td>
+          </tr>
+        </tbody>
          )
        })
-      }
-    </div>
-    </div>
+     }
+  </table>
+  </div>
   );
 };
 

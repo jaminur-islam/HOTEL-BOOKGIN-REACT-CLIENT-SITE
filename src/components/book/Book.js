@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import useAuth from "../../Hooks/useAuth";
-
+import { useForm } from "react-hook-form";
+import './book.css'
 const Book = () => {
   const [service, setService] = useState({});
   const { id } = useParams();
@@ -13,26 +14,32 @@ const Book = () => {
     });
   }, []);
 
-  const history = useHistory();
-  const bookHandle = (id) => {
-    service.nameis = user.displayName;
-    service.req = "Pending";
-    delete service._id;
-    console.log(service);
-    axios.post(`http://localhost:5000/mybook`, service).then((result) => {
-      history.push("/mybook");
-      alert("Booking successfully");
-    });
-  };
-
-  const { img, name, price, description, _id } = service || {};
+   // form control
+   const history = useHistory();
+     const { register, handleSubmit , reset } = useForm();
+  const onSubmit = data =>{
+    data.status = 'Pending';
+    console.log(data);
+    axios.post(`http://localhost:5000/mybook`, data)
+    .then(result=>{
+      if(result.data.acknowledged){
+        history.push('/mybook')
+        reset()
+        alert('Your order was successful')
+      }
+    })
+  }
+  const {name , description , img , price } = service;
   return (
-    <div className="container">
-      <h1 className="mt-3"> Booking place </h1>
-      <hr className="w-25" />
-      <div className="col-lg-6">
-        <div className="m-3 p-4 border">
-          <img className="w-100" src={img} alt="" />
+    <div className='container'>
+       <h1 className="mt-3 text-center"> Booking place </h1>
+      <hr className="w-25 mx-auto" />
+      <div className="row">   
+
+      <div className="col-12 col-lg-6">
+        
+            <div className="m-3 p-4 border">
+          <img className="w-50" src={img} alt="" />
           <h3 className="text-success"> {name} </h3>
           <h4 className="text-etalic">
             <input type="radio" name="ss" />
@@ -51,15 +58,31 @@ const Book = () => {
             to our customers as much as possible, which is why our hotel has
             such a good reputation.
           </p>
-          <button
-            onClick={() => bookHandle(_id)}
-            className="btn btn-primary fs-5 px-4"
-          >
-            Place Order
-          </button>
+         
         </div>
-      </div>
+         </div>
+        <div className="col-12 col-lg-6">
+        <form onSubmit={handleSubmit(onSubmit)}>
+      
+       <label htmlFor="name"> Your name:</label>
+      <input defaultValue={user.displayName} {...register("name")} required />
+
+      <label htmlFor="email"> Your email :</label>
+      <input defaultValue={user?.email} {...register("email")} required />
+      <label htmlFor="data"> Date : </label>
+      <input type='date'  {...register("date")} required />      
+      <label htmlFor="home">Home :</label>
+      <input  {...register("home")} required />
+      <label htmlFor="description"> Description</label>
+      <textarea  {...register("des")}  />
+      <input className='btn btn-primary' type="submit" value='Booking now' />
+    </form>
+         </div>
+
+        
     </div>
+    </div>
+    
   );
 };
 
