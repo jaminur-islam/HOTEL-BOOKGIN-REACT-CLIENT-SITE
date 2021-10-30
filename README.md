@@ -1,6 +1,6 @@
-#this is our COAST HOTELS  website
+###this is our COAST HOTELS  website
 
-This site has been created HTML, css, bootstrap, react visit now (//hotel-book-bffe7.web.app/).
+This site has been created HTML, css, bootstrap, react [ visit now ](//hotel-book-bffe7.web.app/)
 
 ## Available Scripts
 
