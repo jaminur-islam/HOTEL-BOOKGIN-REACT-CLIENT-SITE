@@ -1,6 +1,6 @@
 /* Navbar design */
 .full-nav {
-  background-color: #57513c;
+  background-color: #cecdcc;
   padding: 10px 0;
 }
 .navbar-container {
@@ -52,7 +52,6 @@
 /* Banner desing */
 .carousel-container img {
   height: 85vh;
-  
 }
 
 /* responsive */

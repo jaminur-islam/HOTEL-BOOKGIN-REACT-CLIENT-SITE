@@ -21,7 +21,7 @@ const Header = () => {
           className="navbar-brand fs-4 fw-bold text-uppercase text-success"
           href="/home"
         >
-          Coast Hotels
+          Coast <span className="name"> Hotels </span>
         </a>
         <button
           className="navbar-toggler"
@@ -36,51 +36,54 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mx-auto navbar-container">
-            <Link aria-current="page" to="/home">
+            <HashLink aria-current="page" to="/home#banner">
               Home
-            </Link>
+            </HashLink>
             <HashLink to="/home#service">Services</HashLink>
 
-            <a href="#">About us</a>
+            <HashLink to="/home#about">About us</HashLink>
 
-           
-
-              {
-                user?  <li className="nav-item dropdown ">
-                <a className="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Pages 
+            {user ? (
+              <li className="nav-item dropdown ">
+                <a
+                  className="nav-link dropdown-toggle "
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Pages
                 </a>
-                <ul className="dropdown-menu border-0 " aria-labelledby="navbarDropdown" style={{backgroundColor: "#57513C"}}>
-                <li  className='mt-2'>
-                  {user ? <Link to="/add">Add service </Link> : ""}
+                <ul
+                  className="dropdown-menu border-0 "
+                  aria-labelledby="navbarDropdown"
+                  style={{ backgroundColor: "#cecdcc" }}
+                >
+                  <li className="mt-2">
+                    {user ? <Link to="/add">Add service </Link> : ""}
                   </li>
-                  <li  className='mt-2'>
-                  {user ? <Link to="/mybook">My bookings </Link> : ""}
-                  
+                  <li className="mt-2">
+                    {user ? <Link to="/mybook">My bookings </Link> : ""}
                   </li>
-                  <li className='mt-2'>
-                  {user ? <Link to="/manage"> Manage order </Link> : ""}
+                  <li className="mt-2">
+                    {user ? <Link to="/manage"> Manage order </Link> : ""}
                   </li>
-                  
-                 
                 </ul>
-              </li> : ''
-              }
-            
-         
-         
+              </li>
+            ) : (
+              ""
+            )}
 
-           
-
-        {user ? (
+            {user ? (
               <div className="d-flex align-items-center ">
-                <span className="text-white"> {user.displayName} </span>
+                <span className="text-success"> {user.displayName} </span>
                 <img className="user-img me-2" src={user.photoURL} alt="" />
               </div>
             ) : (
               ""
             )}
-             
+
             {user ? (
               <button className="logOut-btn" onClick={logOut}>
                 Log Out
@@ -90,9 +93,6 @@ const Header = () => {
                 Log In
               </button>
             )}
-
-
-         
           </ul>
         </div>
       </div>

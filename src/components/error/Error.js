@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
-import img from '../../banner-img/error.png'
+import img from "../../banner-img/error.png";
 
 const Error = () => {
   const history = useHistory();
@@ -11,7 +11,13 @@ const Error = () => {
   return (
     <div>
       <div>
-        <img src={img} alt="" className='mx-auto d-block rounded' width="50%" height="50%" />
+        <img
+          src={img}
+          alt=""
+          className="mx-auto d-block rounded"
+          width="50%"
+          height="50%"
+        />
       </div>
 
       <div className="text-center">

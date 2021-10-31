@@ -1,0 +1,42 @@
+/* food items design */
+.food-container {
+  height: 800px;
+}
+.button-container {
+  margin-bottom: 20px;
+}
+.button-container button {
+  border: 0;
+  margin-left: 20px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background-color: rgb(245, 238, 238);
+  font-size: 18px;
+  color: rgb(61, 43, 43);
+  transition: 0.3s;
+}
+.button-container button:hover {
+  background-color: saddlebrown;
+  color: white;
+}
+
+.button-container .active {
+  background-color: saddlebrown;
+  color: white;
+}
+
+.coll {
+  height: 380px;
+}
+
+@media screen and (max-width: 560px) {
+  .food-container {
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 560px) and (max-width: 992px) {
+  .food-container {
+    height: 100%;
+  }
+}

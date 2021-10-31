@@ -1,49 +1,54 @@
 import authenticationInit from "../firebase/firebase.init";
-import { getAuth,  signInWithPopup, GoogleAuthProvider , onAuthStateChanged , signOut } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
 import { useEffect, useState } from "react";
 authenticationInit();
 
-const useFirebase = () =>{
+const useFirebase = () => {
   // loading
-  const [loading , setLoading] = useState(true)
-  console.log(loading);
+  const [loading, setLoading] = useState(true);
   // user State
-  const [user , setUser ] = useState(null);
-   // auth
-     const auth = getAuth();
+  const [user, setUser] = useState(null);
+  // auth
+  const auth = getAuth();
 
-   // googleProvider 
-     const googleProvider = new GoogleAuthProvider();
+  // googleProvider
+  const googleProvider = new GoogleAuthProvider();
 
-    // hangle google signIn
-    const googleSign = () =>{
-    return signInWithPopup(auth , googleProvider)
-    }
+  // hangle google signIn
+  const googleSign = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
 
-    // logOUt
-    const logOut = () =>{
-      setLoading(true);
-      signOut(auth)
-      .then(()=>{
-        setUser(null)
-      }).finally(()=>{
-        setLoading(false)
+  // logOUt
+  const logOut = () => {
+    setLoading(true);
+    signOut(auth)
+      .then(() => {
+        setUser(null);
       })
-    }
-    
-    // handle users 
-    useEffect(()=>{
-   const unsubscribe =  onAuthStateChanged(auth , (user)=>{
-        if(user){
-          setUser(user)
-        }
-        setLoading(false)
-      })
-      
-      return ()=> unsubscribe;
-    },[])
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
- 
-return {googleSign , user , logOut , setLoading , loading}
-} 
+  // handle users
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      }
+      setLoading(false);
+    });
+
+    return () => unsubscribe;
+  }, []);
+
+  return { googleSign, user, logOut, setLoading, loading };
+};
 export default useFirebase;

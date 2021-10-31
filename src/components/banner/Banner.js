@@ -5,7 +5,7 @@ import img3 from "../../banner-img/img-3.jpg";
 
 const Banner = () => {
   return (
-    <div>
+    <div id="banner">
       <div>
         <div
           id="carouselExampleCaptions"

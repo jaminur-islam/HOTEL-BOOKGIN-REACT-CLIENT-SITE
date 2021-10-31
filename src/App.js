@@ -11,37 +11,45 @@ import Mybook from "./components/mybook/Mybook";
 import Manage from "./components/manage/Manage";
 import Add from "./components/add/Add";
 import Error from "./components/error/Error";
+import Foods from "./components/food/Foods";
+import Footer from "./components/Footer/Footer";
+import Experience from "./components/ex/Experience";
 
 function App() {
   return (
     <ContextProvider>
       <Router>
-      <Header></Header>
+        <Header></Header>
 
         <Switch>
           <Route path="/home">
             <Banner></Banner>
             <Services></Services>
+            <Foods></Foods>
+            <Experience></Experience>
+            <Footer></Footer>
           </Route>
 
           <Route exact path="/">
             <Banner></Banner>
             <Services></Services>
+            <Foods></Foods>
+            <Experience></Experience>
+            <Footer></Footer>
           </Route>
-            
-          <Route path='/add'>
-             <Add></Add>
+
+          <Route path="/add">
+            <Add></Add>
           </Route>
 
           <PrivetRouter path="/book/:id">
             <Book> </Book>
           </PrivetRouter>
-          
-          <PrivetRouter path='/manage'>
-          <Manage></Manage>
+
+          <PrivetRouter path="/manage">
+            <Manage></Manage>
           </PrivetRouter>
-          
-        
+
           <PrivetRouter path="/mybook">
             <Mybook> </Mybook>
           </PrivetRouter>
@@ -50,11 +58,9 @@ function App() {
             <Login> </Login>
           </Route>
 
-
           <Route path="*">
             <Error></Error>
           </Route>
-
         </Switch>
       </Router>
     </ContextProvider>
