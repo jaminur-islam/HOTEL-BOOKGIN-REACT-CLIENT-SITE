@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
+import './service.css'
 
 const Service = (props) => {
   const { name, price, description, _id, rate, img } = props.service;
@@ -12,7 +13,7 @@ const Service = (props) => {
 
   return (
     <div className="col-lg-6">
-      <div className="m-3 p-4 border">
+      <div className="m-3 px-2 service">
         <img className="w-100" src={img} alt="" />
         <h3 className="text-success mt-2"> {name} </h3>
         <h4 className="text-etalic">
@@ -22,9 +23,9 @@ const Service = (props) => {
 
         <button
           onClick={() => handleBook(_id)}
-          className="btn btn-primary fs-5 px-4"
+          className="btn btn-primary mb-3 fs-5 px-4"
         >
-          Book a room
+          <i className="fas fa-dolly-flatbed"></i> Book a room
         </button>
       </div>
     </div>

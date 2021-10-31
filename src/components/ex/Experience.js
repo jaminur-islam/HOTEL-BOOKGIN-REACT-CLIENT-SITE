@@ -35,7 +35,7 @@ const Experience = () => {
           return (
             <div key={exp.name} className="col-lg-4 my-4">
               <div className="p-4 m-1 ex-container">
-                <div>
+                <div className='expert'>
                   <img height="120" src={exp.img} alt="" />
                   <div>
                     <h5 className="mt-2"> {exp.name} </h5>

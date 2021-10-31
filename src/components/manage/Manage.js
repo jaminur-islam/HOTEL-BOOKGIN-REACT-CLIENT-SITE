@@ -46,13 +46,14 @@ const Manage = () => {
           <thead>
             <tr>
               <th scope="col">Sl</th>
+              <th scope="col">Order-Id</th>
               <th scope="col">Name</th>
               <th scope="col">Email</th>
               <th scope="col">Location</th>
               <th scope="col"> Data </th>
               <th scope="col"> Status </th>
               <th scope="col"> Delete </th>
-              <th scope="col"> To accept </th>
+              <th scope="col"> Accept orders </th>
             </tr>
           </thead>
           {orderr?.map((order) => {
@@ -60,6 +61,7 @@ const Manage = () => {
               <tbody key={order._id}>
                 <tr>
                   <th scope="row">{num++}</th>
+                  <td>{order.orderId}</td>
                   <td>{order.name}</td>
                   <td>{order.email}</td>
                   <td>{order.home}</td>
@@ -72,24 +74,27 @@ const Manage = () => {
                     {order.status}
                   </td>
                   <td>
-                    {" "}
+                    
                     <button
                       onClick={() => cancelHandle(order._id)}
                       className="border-0 bg-danger text-white fs-6"
                     >
-                      {" "}
-                      Cancel{" "}
+                      
+                      Cancel
                     </button>
                   </td>
                   <td>
-                    {" "}
-                    <button
+                    
+                  {
+                      order.status == "Approve" ? <button className='border-0 btn-success'> Done </button> : <button
                       className="border-0 text-white bg-success fs-6"
                       onClick={() => handleAccept(order._id)}
                     >
-                      {" "}
-                      Accept{" "}
+                      
+                      Accept
                     </button>
+                    }
+                   
                   </td>
                 </tr>
               </tbody>

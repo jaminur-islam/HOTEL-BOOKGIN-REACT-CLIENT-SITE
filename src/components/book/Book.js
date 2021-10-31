@@ -20,6 +20,7 @@ const Book = () => {
   const history = useHistory();
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
+    data.orderId = service._id;
     data.status = "Pending";
     axios
       .post(`https://creepy-blood-44513.herokuapp.com/mybook`, data)

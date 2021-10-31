@@ -61,12 +61,15 @@ const Mybook = () => {
                   {order.status}
                 </td>
                 <td>
-                  <button
-                    onClick={() => cancelHandle(order._id)}
-                    className="border-0 bg-danger text-white fs-6"
-                  >
-                    Cancel
-                  </button>
+                  {
+                     order.status == "Approve"? <button className='border-0 btn-primary '> Succeeded</button>: <button
+                     onClick={() => cancelHandle(order._id)}
+                     className="border-0 bg-danger text-white fs-6"
+                   >
+                     Cancel
+                   </button>
+                  }
+                 
                 </td>
               </tr>
             </tbody>

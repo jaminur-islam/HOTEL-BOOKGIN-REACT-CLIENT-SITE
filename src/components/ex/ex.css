@@ -5,6 +5,14 @@
   box-shadow: 2px 4px 4px rgb(173, 167, 161);
 }
 
+.expert{
+  overflow: hidden;
+}
+.expert img:hover {
+  transform: scale(1.1);
+  transition-duration: 2s;
+}
+
 .ex-container:hover {
   box-shadow: 2px 2px rgb(219, 213, 206);
 }

@@ -27,7 +27,7 @@ const Add = () => {
         <input {...register("name")} required />
 
         <label htmlFor="name"> Service Price :</label>
-        <input {...register("price")} required />
+        <input type='number' {...register("price")} required />
 
         <label htmlFor="name"> Service description :</label>
         <textarea {...register("description")} required />

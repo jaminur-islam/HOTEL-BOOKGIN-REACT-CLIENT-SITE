@@ -29,6 +29,12 @@
   height: 380px;
 }
 
+
+.coll img:hover {
+  transform: rotate(180deg);
+  transition-duration: 20s;
+}
+
 @media screen and (max-width: 560px) {
   .food-container {
     height: 100%;
